@@ -1,0 +1,14 @@
+{
+  "env": {
+    "test": {
+      "presets": []
+    },
+    "development": {
+      "presets": []
+    },
+    "production": {
+      "presets": []
+    }
+  },
+  "plugins": ["syntax-object-rest-spread"]
+}
