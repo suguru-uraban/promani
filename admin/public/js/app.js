@@ -16200,7 +16200,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".login[data-v-6bdc8b8e] {\n  margin: auto;\n  height: calc($height-base - 32px);\n  position: absolute;\n  top: 16px;\n  left: 16px;\n  right: 16px;\n  bottom: 16px;\n  border-radius: 8px;\n  background-color: #b9bdc4;\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/bg-admin-maki.svg */ "./resources/images/bg-admin-maki.svg")) + ");\n  background-position: top 24px right 40px;\n  background-repeat: no-repeat;\n  background-size: 400px auto;\n}\n.login__body[data-v-6bdc8b8e] {\n  margin: auto;\n  padding: 16px;\n  width: 400px;\n  height: 280px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 16px;\n  box-shadow: 8px 8px 4px 0 rgba(0, 0, 0, 0.2);\n}\n.login__title[data-v-6bdc8b8e] {\n  font-size: 1.6rem;\n  color: #666666;\n  text-align: center;\n}\n.login__logo[data-v-6bdc8b8e] {\n  margin-right: 8px;\n}\n.login__form[data-v-6bdc8b8e] {\n  margin: 32px 40px 0;\n  padding: 0 0 8px;\n  list-style: none;\n}\n.login__form-wrap[data-v-6bdc8b8e] {\n  margin-bottom: 16px;\n  display: flex;\n}\n.login__form-parts[data-v-6bdc8b8e] {\n  padding: 4px;\n  height: 32px;\n  font-size: 1.6rem;\n  border: #cccccc solid 1px;\n  border-radius: 8px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  flex: 1;\n}\n.login__form-parts[data-v-6bdc8b8e]::-webkit-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::-moz-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]:-ms-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::-ms-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::placeholder {\n  color: #cccccc;\n}\n.login__icon[data-v-6bdc8b8e] {\n  margin-right: 8px;\n  width: 24px;\n  height: auto;\n  color: #666666;\n}\n.login__button[data-v-6bdc8b8e] {\n  margin: 0 auto;\n  width: 150px;\n  height: 40px;\n  font-size: 2rem;\n  color: #ffffff;\n  display: block;\n  border-radius: 8px;\n  background: #6e7685;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n.login__button[data-v-6bdc8b8e]:hover {\n  color: #333333;\n  background: #bec4cf;\n}", ""]);
+exports.push([module.i, ".login[data-v-6bdc8b8e] {\n  margin: auto;\n  min-width: calc(1000px - (16px * 2));\n  height: calc(100vh - 15px - (16px * 2));\n  position: absolute;\n  top: 16px;\n  left: 16px;\n  right: 16px;\n  bottom: 16px;\n  border-radius: 8px;\n  background-color: #b9bdc4;\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/bg-admin-maki.svg */ "./resources/images/bg-admin-maki.svg")) + ");\n  background-position: top 24px right 40px;\n  background-repeat: no-repeat;\n  background-size: 400px auto;\n}\n.login__body[data-v-6bdc8b8e] {\n  margin: auto;\n  padding: 16px;\n  width: 400px;\n  height: 280px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 16px;\n  box-shadow: 8px 8px 4px 0 rgba(0, 0, 0, 0.2);\n}\n.login__title[data-v-6bdc8b8e] {\n  font-size: 1.6rem;\n  color: #666666;\n  text-align: center;\n}\n.login__logo[data-v-6bdc8b8e] {\n  margin-right: 8px;\n}\n.login__form[data-v-6bdc8b8e] {\n  margin: 32px 48px 0;\n  padding: 0;\n  list-style: none;\n}\n.login__form-wrap[data-v-6bdc8b8e] {\n  margin-bottom: 24px;\n  display: flex;\n}\n.login__form-parts[data-v-6bdc8b8e] {\n  flex: 1;\n}\n.login__form-parts[data-v-6bdc8b8e]::-webkit-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::-moz-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]:-ms-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::-ms-input-placeholder {\n  color: #cccccc;\n}\n.login__form-parts[data-v-6bdc8b8e]::placeholder {\n  color: #cccccc;\n}\n.login__icon[data-v-6bdc8b8e] {\n  margin-right: 16px;\n  width: 24px;\n  height: auto;\n  color: #666666;\n}\n.login__button[data-v-6bdc8b8e] {\n  margin: 0 auto;\n  display: block;\n}", ""]);
 
 // exports
 
@@ -47708,7 +47708,10 @@ var render = function() {
           "li",
           { staticClass: "login__form-wrap" },
           [
-            _c("fas", { staticClass: "login__icon", attrs: { icon: "user" } }),
+            _c("fas", {
+              staticClass: "login__icon",
+              attrs: { icon: "envelope" }
+            }),
             _vm._v(" "),
             _c("input", {
               staticClass: "login__form-parts",
@@ -47733,7 +47736,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("button", { staticClass: "login__button" }, [_vm._v("ログイン")])
+      _c("button", { staticClass: "medium login__button" }, [
+        _vm._v("ログイン")
+      ])
     ])
   ])
 }

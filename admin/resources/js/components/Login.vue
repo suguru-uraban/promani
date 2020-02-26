@@ -2,11 +2,11 @@
 	<div class="login">
 		<main class="login__body">
 			<h1 class="login__title">
-				<img src="../../images/logo_admin.png" width="200" alt="プロまに" class="login__logo">管理画面v1.0.0
+				<img src="../../images/logo_admin.png" width="200" alt="プロまに" class="login__logo" />管理画面v1.0.0
 			</h1>
 			<ul class="login__form">
 				<li class="login__form-wrap">
-					<fas icon="user" class="login__icon" />
+					<fas icon="envelope" class="login__icon" />
 					<input type="text" placeholder="メールアドレスを入力" class="login__form-parts">
 				</li>
 				<li class="login__form-wrap">
@@ -14,7 +14,7 @@
 					<input type="password" placeholder="パスワードを入力" class="login__form-parts">
 				</li>
 			</ul>
-			<button class="login__button">ログイン</button>
+			<button class="medium login__button">ログイン</button>
 		</main>
 	</div>
 </template>
@@ -24,7 +24,8 @@
 
 .login {
 	margin: auto;
-	height: calc($height-base - 32px);
+	min-width: calc(1000px - (16px * 2));
+	height: calc(100vh - 15px - (16px * 2));
 	position: absolute;
 	top: 16px;
 	left: 16px;
@@ -59,46 +60,29 @@
 		margin-right: 8px;
 	}
 	&__form {
-		margin: 32px 40px 0;
-		padding: 0 0 8px;
+		margin: 32px 48px 0;
+		padding: 0;
 		list-style: none;
 	}
 	&__form-wrap {
-		margin-bottom: 16px;
+		margin-bottom: 24px;
 		display: flex;
 	}
 	&__form-parts {
-		padding: 4px;
-		height: 32px;
-		font-size: 1.6rem;
-		border: #cccccc solid 1px;
-		border-radius: 8px;
-		appearance: none;
 		flex: 1;
 		&::placeholder {
 			color: #cccccc;
 		}
 	}
 	&__icon {
-		margin-right: 8px;
+		margin-right: 16px;
 		width: 24px;
 		height: auto;
 		color: #666666;
 	}
 	&__button {
 		margin: 0 auto;
-		width: 150px;
-		height: 40px;
-		font-size: 2rem;
-		color: #ffffff;
 		display: block;
-		border-radius: 8px;
-		background: $color-admin-button;
-		appearance: none;
-		&:hover {
-			color: #333333;
-			background: $color-admin-button-hover;
-		}
 	}
 }
 </style>

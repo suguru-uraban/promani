@@ -22,8 +22,6 @@ body {
 
 #app {
   min-width: 1000px;
-  height: $height-base;
-  position: relative;
 }
 
 main {
@@ -118,7 +116,30 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
+  height: 40px;
+  font-size: 2rem;
+  color: #666666;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .4);
+  border: 1px solid #707070;
+  background: $color-admin-button;
+  appearance: none;
+  cursor: pointer;
+  &:hover {
+    color: #796837;
+    background: $color-admin-button-hover;
+    border-color: #bfb4a2;
+  }
+  &:disabled {
+    color: #d5d5d5;
+    background: $color-admin-button-disabled;
+    border-color: #e2e2e2;
+    cursor: not-allowed;
+  }
+  &.medium {
+    width: 150px;
+  }
 }
 
 button::-moz-focus-inner,
@@ -171,10 +192,23 @@ textarea {
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
 }
 
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+[type="text"],
+[type="password"] {
+  padding: 4px;
+  height: 32px;
+  font-size: 1.6rem;
+  border: #cccccc solid 1px;
+  border-radius: 8px;
+  appearance: none;
+  flex: 1;
+  &::placeholder {
+    color: #cccccc;
+  }
 }
 
 ::-webkit-file-upload-button {

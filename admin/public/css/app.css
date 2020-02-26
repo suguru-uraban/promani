@@ -15,8 +15,6 @@ body {
 
 #app {
   min-width: 1000px;
-  height: calc(100vh - 15px);
-  position: relative;
 }
 
 main {
@@ -128,7 +126,44 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+  height: 40px;
+  font-size: 2rem;
+  color: #666666;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid #707070;
+  background: linear-gradient(to bottom, #eaeaea, #cecece);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+
+button:hover,
+[type=button]:hover,
+[type=reset]:hover,
+[type=submit]:hover {
+  color: #796837;
+  background: linear-gradient(to bottom, #e5ded0, #cbc1ad);
+  border-color: #bfb4a2;
+}
+
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+  color: #d5d5d5;
+  background: linear-gradient(to bottom, #fafafa, #efefef);
+  border-color: #e2e2e2;
+  cursor: not-allowed;
+}
+
+button.medium,
+[type=button].medium,
+[type=reset].medium,
+[type=submit].medium {
+  width: 150px;
 }
 
 button::-moz-focus-inner,
@@ -195,6 +230,40 @@ textarea {
 
 [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
+}
+
+[type=text],
+[type=password] {
+  padding: 4px;
+  height: 32px;
+  font-size: 1.6rem;
+  border: #cccccc solid 1px;
+  border-radius: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  flex: 1;
+}
+
+[type=text]::-webkit-input-placeholder, [type=password]::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+[type=text]::-moz-placeholder, [type=password]::-moz-placeholder {
+  color: #cccccc;
+}
+
+[type=text]:-ms-input-placeholder, [type=password]:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+[type=text]::-ms-input-placeholder, [type=password]::-ms-input-placeholder {
+  color: #cccccc;
+}
+
+[type=text]::placeholder,
+[type=password]::placeholder {
+  color: #cccccc;
 }
 
 ::-webkit-file-upload-button {

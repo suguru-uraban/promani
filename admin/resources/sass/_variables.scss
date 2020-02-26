@@ -3,13 +3,11 @@ $font-family-sans-serif: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3'
 $font-size-base: 1.6rem;
 $line-height-base: 1.6;
 
-// Height
-$height-base: calc(100vh - 15px);
-
 // Colors
 $color-font-base: #ffffff;
 $color-font-black: #333333;
 $color-admin-primary: #424852;
 $color-admin-secondary: #b9bdc4;
-$color-admin-button: #6e7685;
-$color-admin-button-hover: #bec4cf;
+$color-admin-button: linear-gradient(to bottom, #eaeaea, #cecece);
+$color-admin-button-disabled: linear-gradient(to bottom, #fafafa, #efefef);
+$color-admin-button-hover: linear-gradient(to bottom, #e5ded0, #cbc1ad);
