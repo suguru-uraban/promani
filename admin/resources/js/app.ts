@@ -5,9 +5,9 @@ import router from './router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
+import { ValidationObserver, ValidationProvider, extend, localize, configure } from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
-import ja from './/lang/validate/ja';
+import ja from './lang/validate/ja';
 
 library.add(fas);
 
@@ -16,6 +16,12 @@ Object.keys(rules).forEach(rule => {
 });
 
 localize('ja', ja);
+
+configure({
+  classes: {
+    invalid: 'error'
+  }
+})
 
 Vue.component('fas', FontAwesomeIcon);
 Vue.component('ValidationObserver', ValidationObserver);

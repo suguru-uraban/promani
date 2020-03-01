@@ -4,39 +4,61 @@
 			<h1 class="login__title">
 				<img src="../../images/logo_admin.png" width="200" alt="プロまに" class="login__logo" />管理画面v1.0.0
 			</h1>
-			<ul class="login__form">
-				<li class="login__form-wrap">
-					<fas icon="envelope" class="login__icon" />
-					<ValidationProvider v-slot="{ errors }">
-						<input
-							type="text"
-							placeholder="メールアドレスを入力"
-							class="login__form-parts"
-							v-model="value"
-						/>
-						<span>{{ errors[0] }}</span>
+			<ValidationObserver v-slot="{ handleSubmit }">
+				<ul class="login__form">
+					<ValidationProvider
+						name="メールアドレス"
+						rules="required|email"
+						:bails="false"
+						v-slot="{ classes, errors }"
+					>
+						<li class="login__form-wrap" :class="classes">
+							<fas icon="envelope" class="login__icon" />
+								<input
+									type="text"
+									placeholder="メールアドレスを入力"
+									class="login__form-parts"
+									v-model="email"
+								/>
+								<span class="error-baloon">{{ errors[0] }}</span>
+						</li>
 					</ValidationProvider>
-				</li>
-				<li class="login__form-wrap">
-					<fas icon="key" class="login__icon" />
-					<ValidationProvider v-slot="{ errors }">
-						<input
-							type="password"
-							placeholder="パスワードを入力"
-							class="login__form-parts"
-							v-model="value"
-						/>
-						<span>{{ errors[0] }}</span>
+					<ValidationProvider
+						name="パスワード"
+						rules="required"
+						:bails="false"
+						v-slot="{ classes, errors }"
+					>
+						<li class="login__form-wrap" :class="classes">
+							<fas icon="key" class="login__icon" />
+							<input
+								type="password"
+								placeholder="パスワードを入力"
+								class="login__form-parts"
+								v-model="password"
+							/>
+							<span class="error-baloon">{{ errors[0] }}</span>
+						</li>
 					</ValidationProvider>
-				</li>
-			</ul>
-			<button class="medium login__button">ログイン</button>
+				</ul>
+				<button class="medium login__button" @click="handleSubmit(onSubmit)">ログイン</button>
+			</ValidationObserver>
 		</main>
 	</div>
 </template>
 
 <script lang="ts">
-export default {}
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Login extends Vue {
+	email: string = '';
+	password: string = '';
+	
+	public onSubmit(){
+		console.log('submit!');
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -87,6 +109,7 @@ export default {}
 	&__form-wrap {
 		margin-bottom: 24px;
 		display: flex;
+		position: relative;
 	}
 	&__form-parts {
 		flex: 1;
