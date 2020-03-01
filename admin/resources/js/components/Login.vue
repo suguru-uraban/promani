@@ -7,17 +7,37 @@
 			<ul class="login__form">
 				<li class="login__form-wrap">
 					<fas icon="envelope" class="login__icon" />
-					<input type="text" placeholder="メールアドレスを入力" class="login__form-parts">
+					<ValidationProvider v-slot="{ errors }">
+						<input
+							type="text"
+							placeholder="メールアドレスを入力"
+							class="login__form-parts"
+							v-model="value"
+						/>
+						<span>{{ errors[0] }}</span>
+					</ValidationProvider>
 				</li>
 				<li class="login__form-wrap">
 					<fas icon="key" class="login__icon" />
-					<input type="password" placeholder="パスワードを入力" class="login__form-parts">
+					<ValidationProvider v-slot="{ errors }">
+						<input
+							type="password"
+							placeholder="パスワードを入力"
+							class="login__form-parts"
+							v-model="value"
+						/>
+						<span>{{ errors[0] }}</span>
+					</ValidationProvider>
 				</li>
 			</ul>
 			<button class="medium login__button">ログイン</button>
 		</main>
 	</div>
 </template>
+
+<script lang="ts">
+export default {}
+</script>
 
 <style lang="scss" scoped>
 @import "resources/sass/variables";
