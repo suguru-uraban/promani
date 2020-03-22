@@ -14,6 +14,7 @@ import {
 } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
 import ja from "./lang/validate/ja";
+import AdministratorModule from "./store/administrator";
 
 bootstrap();
 
@@ -37,8 +38,14 @@ Vue.component("ValidationProvider", ValidationProvider);
 
 window.Vue = Vue;
 
-new Vue({
-    el: "#app",
-    router,
-    store
-}).$mount("#app");
+const createApp = async () => {
+    await AdministratorModule.currentAdministrator();
+
+    new Vue({
+        el: "#app",
+        router,
+        store
+    }).$mount("#app");
+};
+
+createApp();

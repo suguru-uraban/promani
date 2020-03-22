@@ -43,13 +43,19 @@ class Administrator extends VuexModule {
     public async login(payload: LoginState) {
         const response = await window.axios.post("/api/login", payload);
         this.SET_ADMINISTRATOR(response.data);
-        console.log(response.data);
     }
     // ログアウト
     @Action({})
     public async logout() {
         await window.axios.post("/api/logout");
         this.SET_ADMINISTRATOR(null);
+    }
+    // ログイン管理者取得
+    @Action({})
+    public async currentAdministrator() {
+        const response = await window.axios.get("/api/administrator");
+        const administrator = response.data || null;
+        this.SET_ADMINISTRATOR(administrator);
     }
 }
 

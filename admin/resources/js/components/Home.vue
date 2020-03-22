@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <main class="home__body">
+      <p>{{username}}</p>
       <p>ユーザー登録</p>
       <p>
         <span @click="logout">ログアウト</span>
@@ -18,6 +19,10 @@ export default class Login extends Vue {
   public async logout() {
     await AdministratorModule.logout();
     this.$router.push("/login");
+  }
+
+  get username() {
+    return AdministratorModule.username;
   }
 }
 </script>

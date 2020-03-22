@@ -10,3 +10,6 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 // ログアウト
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+// ログイン管理者取得
+Route::get('/administrator', fn() => Auth::user())->name('administrator');
