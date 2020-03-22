@@ -1,7 +1,7 @@
-require("./bootstrap");
-
+import bootstrap from "./bootstrap";
 import Vue from "vue";
 import router from "./router";
+import store from "./store/index";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -14,6 +14,8 @@ import {
 } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
 import ja from "./lang/validate/ja";
+
+bootstrap();
 
 library.add(fas);
 
@@ -37,5 +39,6 @@ window.Vue = Vue;
 
 new Vue({
     el: "#app",
-    router
+    router,
+    store
 }).$mount("#app");

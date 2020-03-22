@@ -55,28 +55,20 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import axios from "axios";
+import AdministratorModule from "../store/administrator";
 
 @Component
 export default class Login extends Vue {
   email: string = "";
   password: string = "";
 
-  public onSubmit() {
-    const url = "/login";
+  public async onSubmit() {
     const params = {
       email: this.email,
       password: this.password
     };
-    axios
-      .post(url, params)
-      .then(function(res) {
-        console.log(res);
-      })
-      .catch(function(error) {
-        console.log("NG...");
-        console.log(error);
-      });
+    await AdministratorModule.login(params);
+    this.$router.push("/");
   }
 }
 </script>

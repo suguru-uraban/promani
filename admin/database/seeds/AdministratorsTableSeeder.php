@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class AdministratorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        DB::table('users')->insert([
+        DB::table('administrators')->delete();
+        DB::table('administrators')->insert([
             'employee_number' => '0000',
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
