@@ -11,14 +11,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import AdministratorModule from "../store/administrator";
+import { Component, Vue } from 'vue-property-decorator';
+import AdministratorModule from '../store/administrator';
 
 @Component
 export default class Login extends Vue {
   public async logout() {
     await AdministratorModule.logout();
-    this.$router.push("/login");
+    this.$router.push('/login');
   }
 
   get username() {
@@ -28,7 +28,7 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "resources/sass/variables";
+@import 'resources/sass/variables';
 
 .home {
   padding: 40px 0 0 40px;

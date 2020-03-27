@@ -1,6 +1,6 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import RootState from "../types/stateType";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import RootState from '../types/stateType';
 
 Vue.use(Vuex);
 

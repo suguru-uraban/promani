@@ -1,36 +1,36 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./components/Home.vue";
-import Login from "./components/Login.vue";
-import Error500 from "./components/errors/500.vue";
-import AdministratorModule from "./store/administrator";
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './components/Home.vue';
+import Login from './components/Login.vue';
+import Error500 from './components/errors/500.vue';
+import AdministratorModule from './store/administrator';
 
 Vue.use(Router);
 
 export default new Router({
-    mode: "history",
-    routes: [
-        {
-            path: "/",
-            name: "home",
-            component: Home
-        },
-        {
-            path: "/login",
-            name: "login",
-            component: Login,
-            beforeEnter(_to, _from, next) {
-                if (AdministratorModule.check) {
-                    next("/");
-                } else {
-                    next();
-                }
-            }
-        },
-        {
-            path: "/500",
-            name: "INTERNAL_SERVER_ERROR",
-            component: Error500
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      beforeEnter(_to, _from, next) {
+        if (AdministratorModule.check) {
+          next('/');
+        } else {
+          next();
         }
-    ]
+      },
+    },
+    {
+      path: '/500',
+      name: 'INTERNAL_SERVER_ERROR',
+      component: Error500,
+    },
+  ],
 });

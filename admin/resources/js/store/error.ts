@@ -1,21 +1,16 @@
-import {
-    Mutation,
-    VuexModule,
-    getModule,
-    Module
-} from "vuex-module-decorators";
-import store from ".";
+import { Mutation, VuexModule, getModule, Module } from 'vuex-module-decorators';
+import store from '.';
 
-@Module({ dynamic: true, store, name: "ErrorModule", namespaced: true })
+@Module({ dynamic: true, store, name: 'ErrorModule', namespaced: true })
 class Error extends VuexModule {
-    // state
-    public code: number | null = null;
+  // state
+  public code: number | null = null;
 
-    // mutation
-    @Mutation
-    public SET_ERROR(payload: number) {
-        this.code = payload;
-    }
+  // mutation
+  @Mutation
+  public SET_ERROR(payload: number) {
+    this.code = payload;
+  }
 }
 
 export default getModule(Error);
