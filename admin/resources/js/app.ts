@@ -13,8 +13,10 @@ import {
     configure
 } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
+import Toasted from "vue-toasted";
 import ja from "./lang/validate/ja";
 import AdministratorModule from "./store/administrator";
+import App from "./App.vue";
 
 bootstrap();
 
@@ -32,6 +34,15 @@ configure({
     }
 });
 
+const options = {
+    position: "bottom-right",
+    duration: 4000,
+    type: "error",
+    singleton: true
+};
+
+Vue.use(Toasted, options);
+
 Vue.component("fas", FontAwesomeIcon);
 Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
@@ -44,8 +55,10 @@ const createApp = async () => {
     new Vue({
         el: "#app",
         router,
-        store
-    }).$mount("#app");
+        store,
+        components: { App },
+        template: "<App />"
+    });
 };
 
 createApp();

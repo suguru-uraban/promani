@@ -11,11 +11,15 @@ import {
     RegisterState,
     LoginState
 } from "../types/stateType";
+import ErrorModule from "../store/error";
+import { OK, UNPROCESSABLE_ENTITY } from "../util/status";
 
-@Module({ dynamic: true, store, name: "administrator", namespaced: true })
+@Module({ dynamic: true, store, name: "AdministratorModule", namespaced: true })
 class Administrator extends VuexModule {
     // state
-    public administrator: AdministratorState | null = null;
+    private administrator: AdministratorState | null = null;
+    public apiStatus: boolean | null = null;
+    public loginError: boolean = false;
 
     // getter
     public get check(): boolean {
@@ -30,6 +34,14 @@ class Administrator extends VuexModule {
     public SET_ADMINISTRATOR(payload: AdministratorState) {
         this.administrator = payload;
     }
+    @Mutation
+    public SET_APISTATUS(payload: boolean) {
+        this.apiStatus = payload;
+    }
+    @Mutation
+    public SET_LOGINERROR(payload: boolean) {
+        this.loginError = payload;
+    }
 
     // actions
     // 管理者登録
@@ -41,8 +53,20 @@ class Administrator extends VuexModule {
     // ログイン
     @Action({})
     public async login(payload: LoginState) {
-        const response = await window.axios.post("/api/login", payload);
-        this.SET_ADMINISTRATOR(response.data);
+        const response = await window.axios
+            .post("/api/login", payload)
+            .catch(err => err.response || err);
+        if (response.status === OK) {
+            this.SET_APISTATUS(true);
+            this.SET_ADMINISTRATOR(response.data);
+            return;
+        }
+        this.SET_APISTATUS(false);
+        if (response.status === UNPROCESSABLE_ENTITY) {
+            this.SET_LOGINERROR(true);
+        } else {
+            ErrorModule.SET_ERROR(response.status);
+        }
     }
     // ログアウト
     @Action({})

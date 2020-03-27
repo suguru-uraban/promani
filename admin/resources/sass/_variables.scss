@@ -1,11 +1,13 @@
 // Typography
-$font-family-sans-serif: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+$font-family-sans-serif: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3",
+    メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
 $font-size-base: 1.6rem;
 $line-height-base: 1.6;
 
 // Colors
 $color-font-base: #ffffff;
 $color-font-black: #333333;
+$color-font-gray: #969696;
 $color-admin-primary: #424852;
 $color-admin-secondary: #b9bdc4;
 $color-admin-button: linear-gradient(to bottom, #eaeaea, #cecece);
