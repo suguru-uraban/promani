@@ -1,20 +1,23 @@
 <template>
-  <div class="home">
-    <main class="home__body">
-      <p>{{username}}</p>
-      <p>ユーザー登録</p>
-      <p>
-        <span @click="logout">ログアウト</span>
-      </p>
-    </main>
-  </div>
+  <Layout>
+    <div class="home">
+      <main class="home__body">
+        <p>ユーザー登録</p>
+      </main>
+    </div>
+  </Layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Layout from './layouts/Layout.vue';
 import AdministratorModule from '../store/administrator';
 
-@Component
+@Component({
+  components: {
+    Layout,
+  },
+})
 export default class Login extends Vue {
   public async logout() {
     await AdministratorModule.logout();
@@ -31,7 +34,6 @@ export default class Login extends Vue {
 @import 'resources/sass/variables';
 
 .home {
-  padding: 40px 0 0 40px;
   &__body {
     width: 100%;
   }

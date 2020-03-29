@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <main>
-      <div class="container">
-        <RouterView />
-      </div>
-    </main>
+  <div class="container">
+    <RouterView />
   </div>
 </template>
 

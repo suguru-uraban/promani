@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="login__body">
+    <main class="login__body">
       <h1 class="login__title">
         <img src="../../images/logo_admin.svg" width="200" alt="プロまに" class="login__logo" />管理画面v1.0.0
       </h1>
@@ -49,7 +49,7 @@
         </ValidationProvider>
         <button class="medium login__button" @click="handleSubmit(onSubmit)">ログイン</button>
       </ValidationObserver>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -121,7 +121,7 @@ export default class Login extends Vue {
   }
   &__title {
     font-size: 1.6rem;
-    color: #666666;
+    color: $color-font-title;
     text-align: center;
   }
   &__logo {

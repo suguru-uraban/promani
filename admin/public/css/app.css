@@ -327,3 +327,7 @@ template {
   display: none;
 }
 
+.isOpen {
+  display: block !important;
+}
+
