@@ -1,6 +1,7 @@
 <template>
   <div class="layout">
     <Header />
+    <SideNav />
     <slot></slot>
   </div>
 </template>
@@ -8,10 +9,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Header from './Header.vue';
+import SideNav from './SideNav.vue';
 
 @Component({
   components: {
     Header,
+    SideNav,
   },
 })
 export default class Layout extends Vue {}
@@ -21,7 +24,7 @@ export default class Layout extends Vue {}
 @import 'resources/sass/variables';
 
 .layout {
-  padding: 64px 0 0 80px;
+  padding: 104px 16px 0 176px;
   min-width: 1000px;
   position: relative;
   &__body {

@@ -100,6 +100,7 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  outline: none;
 }
 
 button,
@@ -128,7 +129,6 @@ button,
   background: $color-admin-button;
   appearance: none;
   cursor: pointer;
-  outline: none;
   &:hover {
     color: #796837;
     background: $color-admin-button-hover;

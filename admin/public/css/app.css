@@ -108,6 +108,7 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+  outline: none;
 }
 
 button,
@@ -138,7 +139,6 @@ button,
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
-  outline: none;
 }
 
 button:hover,
