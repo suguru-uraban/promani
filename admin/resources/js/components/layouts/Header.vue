@@ -1,12 +1,17 @@
 <template>
   <div class="header">
     <div class="header__title">
-      <img src="../../../images/logo_admin.svg" height="48" alt="プロまに" class="header__logo" />管理画面v1.0.0
+      <img
+        src="../../../images/logo_admin.svg"
+        height="48"
+        alt="プロまに"
+        class="header__logo"
+      />管理画面v1.0.0
     </div>
     <div class="header__user" @mouseover="usermenuover" @mouseleave="usermenuleave">
       <fas icon="user" class="header__icon" />
-      <span class="header__username">{{username}}</span>
-      <ul :class="['header__usermenu', {isOpen: isOpen}]">
+      <span class="header__username">{{ userName }}</span>
+      <ul :class="['header__usermenu', { isOpen: isOpen }]">
         <li class="header__usermenulist">
           <a href="javascript:void(0)" class="header__usermenulink" @click="logout">ログアウト</a>
         </li>
@@ -32,10 +37,11 @@ export default class Header extends Vue {
   public async logout() {
     await AdministratorModule.logout();
     this.$router.push('/login');
+    window.scroll(0, 0);
   }
 
-  get username() {
-    return AdministratorModule.username;
+  get userName() {
+    return AdministratorModule.userName;
   }
 }
 </script>

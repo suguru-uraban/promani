@@ -17,9 +17,9 @@ class AdministratorsTableSeeder extends Seeder
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password1'),
-            'enum_administrator_auth' => 'edit',
-            'enum_company_auth' => 'edit',
-            'enum_creator_auth' => 'edit',
+            'administrator_auth' => 2,
+            'company_auth' => 2,
+            'creator_auth' => 2,
         ]);
     }
 }

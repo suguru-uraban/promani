@@ -1,0 +1,21 @@
+[
+  {
+    "id": "0",
+    "value": "ホーム",
+    "child": false,
+    "prefix": "fas",
+    "icon": "home",
+    "path": "/",
+    "auth": 0
+  },
+  {
+    "id": "1",
+    "value": "管理者",
+    "child": true,
+    "prefix": "fas",
+    "icon": "user",
+    "isOpen": false,
+    "name": "administrator",
+    "auth": 1
+  }
+]

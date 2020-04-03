@@ -2,27 +2,37 @@
   <nav class="sidenav">
     <ul class="sidenav__menu">
       <li class="sidenav__menulist" v-for="(menu, index) in menus" :key="'menu' + menu.id">
-        <a href="javascript:void(0)" class="sidenav__menulist_block" v-if="!menu.child">
+        <div class="sidenav__menulist_block disable" v-if="userAuth < menu.auth">
+          <fas :prefix="menu.prefix" :icon="menu.icon" class="sidenav__icon disable" />
+          {{ menu.value }}
+        </div>
+        <a
+          href="javascript:void(0)"
+          class="sidenav__menulist_block"
+          v-if="!menu.child && userAuth >= menu.auth"
+          @click="link(menu.path)"
+        >
           <fas :prefix="menu.prefix" :icon="menu.icon" class="sidenav__icon" />
-          {{menu.value}}
+          {{ menu.value }}
         </a>
         <div
           class="sidenav__menulist_block"
-          v-if="menu.child"
+          v-if="menu.child && userAuth >= menu.auth"
           @mouseover="sidenavover(index)"
           @mouseleave="sidenavleave(index)"
         >
           <fas :prefix="menu.prefix" :icon="menu.icon" class="sidenav__icon" />
-          {{menu.value}}
-          <ul :class="['sidenav__child', {isOpen: menu.isOpen}]">
+          {{ menu.value }}
+          <ul :class="['sidenav__child', { isOpen: menu.isOpen }]">
             <li class="sidenav__childmenu" v-for="child in children" :key="'child' + child.id">
               <a
                 href="javascript:void(0)"
                 class="sidenav__childlink"
-                @click="link('/' + menu.name + child.name)"
+                v-if="userAuth >= child.auth"
+                @click="link('/' + menu.name + '/' + child.name)"
               >
                 <fas :prefix="child.prefix" :icon="child.icon" class="sidenav__icon" />
-                {{child.value}}
+                {{ child.value }}
               </a>
             </li>
           </ul>
@@ -34,34 +44,32 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import AdministratorModule from '../../store/administrator';
+
+declare function require(x: string): { [key: string]: string | number | boolean }[];
+const sidenavMenu = require('../../data/sidenavMenu.json');
+const sidenavMenuChild = require('../../data/sidenavMenuChild.json');
 
 @Component
 export default class SideNav extends Vue {
-  menus: { [key: string]: string | boolean }[] = [
-    { id: '0', value: 'ホーム', child: false, prefix: 'fas', icon: 'home' },
-    {
-      id: '1',
-      value: '管理者',
-      child: true,
-      prefix: 'fas',
-      icon: 'user',
-      isOpen: false,
-      name: 'administrator',
-    },
-  ];
-  children: { [key: string]: string | boolean }[] = [
-    { id: '0', value: '一覧', prefix: 'fas', icon: 'list', name: '_list' },
-    { id: '1', value: '新規登録', prefix: 'fas', icon: 'user-plus', name: '_regist' },
-  ];
+  menus: { [key: string]: string | number | boolean }[] = sidenavMenu;
+  children: { [key: string]: string | number | boolean }[] = sidenavMenuChild;
 
-  public sidenavover(index) {
+  public sidenavover(index: number) {
     this.menus[index].isOpen = true;
   }
-  public sidenavleave(index) {
+  public sidenavleave(index: number) {
     this.menus[index].isOpen = false;
   }
-  public link(path) {
-    this.$router.push(path);
+  public link(path: string) {
+    if (this.$route.path !== path) {
+      this.$router.push(path);
+      window.scroll(0, 0);
+    }
+  }
+
+  get userAuth() {
+    return AdministratorModule.userAuth;
   }
 }
 </script>
@@ -90,7 +98,7 @@ export default class SideNav extends Vue {
     border-bottom: $color-admin-border solid 1px;
   }
   &__menulist_block {
-    padding: 0 8px 0 28px;
+    padding: 0 8px 0 32px;
     height: 32px;
     font-size: 1.4rem;
     color: $color-font-over;
@@ -105,8 +113,8 @@ export default class SideNav extends Vue {
   &__icon {
     margin: auto;
     margin-right: 8px;
-    width: 14px;
-    height: auto;
+    width: 18px;
+    font-size: 1.8rem;
     color: $color-font-over;
     position: absolute;
     top: 0;
@@ -132,13 +140,12 @@ export default class SideNav extends Vue {
   }
   &__childmenu {
     margin: 0;
-    padding: 4px 8px;
-    height: 32px;
     position: relative;
     box-sizing: border-box;
   }
   &__childlink {
-    padding: 0 8px 0 28px;
+    margin: 4px 8px;
+    padding: 0 8px 0 32px;
     height: 24px;
     color: $color-font-over;
     line-height: 24px;
@@ -152,6 +159,13 @@ export default class SideNav extends Vue {
       .sidenav__icon {
         color: $color-font-hover;
       }
+    }
+  }
+  .disable {
+    color: $color-font-disable;
+    cursor: not-allowed;
+    &:hover {
+      background: transparent;
     }
   }
 }
