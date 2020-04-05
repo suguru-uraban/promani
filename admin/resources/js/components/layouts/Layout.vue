@@ -2,6 +2,7 @@
   <div class="layout">
     <Header />
     <SideNav />
+    <Breadcrumbs />
     <slot></slot>
   </div>
 </template>
@@ -10,11 +11,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Header from './Header.vue';
 import SideNav from './SideNav.vue';
+import Breadcrumbs from './Breadcrumbs.vue';
 
 @Component({
   components: {
     Header,
     SideNav,
+    Breadcrumbs,
   },
 })
 export default class Layout extends Vue {}
@@ -24,9 +27,10 @@ export default class Layout extends Vue {}
 @import 'resources/sass/variables';
 
 .layout {
-  padding: 104px 16px 0 176px;
+  padding: 112px 16px 0 176px;
   min-width: 1000px;
   position: relative;
+  box-sizing: border-box;
   &__body {
     width: 100%;
   }

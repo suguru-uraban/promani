@@ -84,9 +84,21 @@ export default class SideNav extends Vue {
   position: fixed;
   top: 64px;
   left: 0;
-  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 4px 2px rgba(0, 0, 0, 0.2);
   background: $color-admin-secondary;
-  z-index: 1;
+  z-index: 2;
+  &:after {
+    width: 12px;
+    height: 32px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 160px;
+    box-sizing: border-box;
+    border-top: $color-admin-secondary solid 2px;
+    background: #cccccc;
+  }
   &__menu {
     margin: 0;
     padding: 0;

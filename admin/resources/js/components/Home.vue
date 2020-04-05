@@ -23,7 +23,6 @@ export default class Login extends Vue {}
 
 .home {
   &__body {
-    width: 100%;
   }
 }
 </style>

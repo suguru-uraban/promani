@@ -17,5 +17,35 @@
     "isOpen": false,
     "name": "administrator",
     "auth": 1
+  },
+  {
+    "id": "2",
+    "value": "クリエイター",
+    "child": true,
+    "prefix": "fas",
+    "icon": "address-book",
+    "isOpen": false,
+    "name": "creator",
+    "auth": 1
+  },
+  {
+    "id": "3",
+    "value": "制作会社",
+    "child": true,
+    "prefix": "fas",
+    "icon": "building",
+    "isOpen": false,
+    "name": "company",
+    "auth": 1
+  },
+  {
+    "id": "4",
+    "value": "管理画面設定",
+    "child": true,
+    "prefix": "fas",
+    "icon": "cog",
+    "isOpen": false,
+    "name": "company",
+    "auth": 1
   }
 ]
