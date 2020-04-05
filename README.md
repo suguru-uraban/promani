@@ -268,6 +268,12 @@ valet park コマンドを実行。
 % php artisan migrate:refresh --seed
 ```
 
+npm run watch でページをビルドする。
+
+```command
+% npm run watch
+```
+
 あとは以下の URL をブラウザに入れれば、現在のプロまに管理画面が見れる。
 
 [http://admin.test](http://admin.test)
