@@ -2,14 +2,14 @@
   <nav class="sidenav">
     <ul class="sidenav__menu">
       <li class="sidenav__menulist" v-for="(menu, index) in menus" :key="'menu' + menu.id">
-        <div class="sidenav__menulist_block disable" v-if="userAuth < menu.auth">
+        <div class="sidenav__menulist_block disable" v-if="userAuth(menu.authType) < menu.auth">
           <fas :prefix="menu.prefix" :icon="menu.icon" class="sidenav__icon disable" />
           {{ menu.value }}
         </div>
         <a
           href="javascript:void(0)"
           class="sidenav__menulist_block"
-          v-if="!menu.child && userAuth >= menu.auth"
+          v-if="!menu.child && userAuth(menu.authType) >= menu.auth"
           @click="link(menu.path)"
         >
           <fas :prefix="menu.prefix" :icon="menu.icon" class="sidenav__icon" />
@@ -17,7 +17,7 @@
         </a>
         <div
           class="sidenav__menulist_block"
-          v-if="menu.child && userAuth >= menu.auth"
+          v-if="menu.child && userAuth(menu.authType) >= menu.auth"
           @mouseover="sidenavover(index)"
           @mouseleave="sidenavleave(index)"
         >
@@ -28,7 +28,7 @@
               <a
                 href="javascript:void(0)"
                 class="sidenav__childlink"
-                v-if="userAuth >= child.auth"
+                v-if="userAuth(menu.authType) >= child.auth"
                 @click="link('/' + menu.name + '/' + child.name)"
               >
                 <fas :prefix="child.prefix" :icon="child.icon" class="sidenav__icon" />
@@ -37,6 +37,24 @@
             </li>
           </ul>
         </div>
+      </li>
+    </ul>
+
+    <ul class="sidenav__menu">
+      <li class="sidenav__menulist" v-for="config in configs" :key="'config' + config.id">
+        <div class="sidenav__menulist_block disable" v-if="administratorAuth < config.auth">
+          <fas :prefix="config.prefix" :icon="config.icon" class="sidenav__icon disable" />
+          {{ config.value }}
+        </div>
+        <a
+          href="javascript:void(0)"
+          class="sidenav__menulist_block"
+          v-if="administratorAuth >= config.auth"
+          @click="link(config.path)"
+        >
+          <fas :prefix="config.prefix" :icon="config.icon" class="sidenav__icon" />
+          {{ config.value }}
+        </a>
       </li>
     </ul>
   </nav>
@@ -49,11 +67,13 @@ import AdministratorModule from '../../store/administrator';
 declare function require(x: string): { [key: string]: string | number | boolean }[];
 const sidenavMenu = require('../../data/sidenavMenu.json');
 const sidenavMenuChild = require('../../data/sidenavMenuChild.json');
+const sidenavConfig = require('../../data/sidenavConfig.json');
 
 @Component
 export default class SideNav extends Vue {
-  menus: { [key: string]: string | number | boolean }[] = sidenavMenu;
-  children: { [key: string]: string | number | boolean }[] = sidenavMenuChild;
+  menus = sidenavMenu;
+  children = sidenavMenuChild;
+  configs = sidenavConfig;
 
   public sidenavover(index: number) {
     this.menus[index].isOpen = true;
@@ -67,9 +87,18 @@ export default class SideNav extends Vue {
       window.scroll(0, 0);
     }
   }
+  public userAuth(authType: string) {
+    if (authType === 'administrator') {
+      return AdministratorModule.administratorAuth;
+    } else if (authType === 'creator') {
+      return AdministratorModule.creatorAuth;
+    } else if (authType === 'company') {
+      return AdministratorModule.companyAuth;
+    }
+  }
 
-  get userAuth() {
-    return AdministratorModule.userAuth;
+  get administratorAuth() {
+    return AdministratorModule.administratorAuth;
   }
 }
 </script>
@@ -100,21 +129,26 @@ export default class SideNav extends Vue {
     background: #cccccc;
   }
   &__menu {
-    margin: 0;
+    margin: 24px 0 0;
     padding: 0;
     list-style: none;
+    border-top: $color-admin-border solid 1px;
+    &:first-child {
+      margin: 0;
+      border-top: none;
+    }
   }
   &__menulist {
     width: 100%;
-    height: 32px;
+    height: 40px;
     border-bottom: $color-admin-border solid 1px;
   }
   &__menulist_block {
     padding: 0 8px 0 32px;
-    height: 32px;
-    font-size: 1.4rem;
+    height: 40px;
+    font-size: 1.2rem;
     color: $color-font-over;
-    line-height: 32px;
+    line-height: 40px;
     text-decoration: none;
     display: block;
     position: relative;
@@ -126,7 +160,7 @@ export default class SideNav extends Vue {
     margin: auto;
     margin-right: 8px;
     width: 18px;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: $color-font-over;
     position: absolute;
     top: 0;
@@ -158,9 +192,9 @@ export default class SideNav extends Vue {
   &__childlink {
     margin: 4px 8px;
     padding: 0 8px 0 32px;
-    height: 24px;
+    height: 32px;
     color: $color-font-over;
-    line-height: 24px;
+    line-height: 32px;
     text-decoration: none;
     display: block;
     position: relative;

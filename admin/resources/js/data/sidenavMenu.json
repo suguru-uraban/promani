@@ -6,6 +6,7 @@
     "prefix": "fas",
     "icon": "home",
     "path": "/",
+    "authType": "administrator",
     "auth": 0
   },
   {
@@ -16,6 +17,7 @@
     "icon": "user",
     "isOpen": false,
     "name": "administrator",
+    "authType": "administrator",
     "auth": 1
   },
   {
@@ -26,6 +28,7 @@
     "icon": "address-book",
     "isOpen": false,
     "name": "creator",
+    "authType": "creator",
     "auth": 1
   },
   {
@@ -36,16 +39,7 @@
     "icon": "building",
     "isOpen": false,
     "name": "company",
-    "auth": 1
-  },
-  {
-    "id": "4",
-    "value": "管理画面設定",
-    "child": true,
-    "prefix": "fas",
-    "icon": "cog",
-    "isOpen": false,
-    "name": "company",
+    "authType": "company",
     "auth": 1
   }
 ]

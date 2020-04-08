@@ -1,0 +1,20 @@
+[
+  {
+    "id": "0",
+    "value": "共有事項編集",
+    "child": false,
+    "prefix": "fas",
+    "icon": "info-circle",
+    "path": "/information/edit",
+    "auth": 0
+  },
+  {
+    "id": "1",
+    "value": "リリースノート編集",
+    "child": false,
+    "prefix": "fas",
+    "icon": "sticky-note",
+    "path": "releasenote/edit",
+    "auth": 1
+  }
+]

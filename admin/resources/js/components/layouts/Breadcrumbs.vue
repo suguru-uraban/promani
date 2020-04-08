@@ -3,12 +3,18 @@
     <li class="breadcrumbs__list">
       <fas icon="home" class="breadcrumbs__homeicon" />
     </li>
+    <li class="breadcrumbs__list">
+      <span class="breadcrumbs__list_inner">管理者</span>
+    </li>
+    <li class="breadcrumbs__list">
+      <span class="breadcrumbs__list_inner">一覧</span>
+    </li>
   </ul>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import AdministratorModule from '../../store/administrator';
+// import AdministratorModule from '../../store/administrator';
 
 @Component
 export default class SideNav extends Vue {
@@ -17,10 +23,6 @@ export default class SideNav extends Vue {
       this.$router.push(path);
       window.scroll(0, 0);
     }
-  }
-
-  get userAuth() {
-    return AdministratorModule.userAuth;
   }
 }
 </script>
@@ -45,16 +47,40 @@ export default class SideNav extends Vue {
   background: #cccccc;
   z-index: 1;
   &__list {
-    padding: 0 16px;
+    padding: 0 16px 0 32px;
     height: 30px;
     line-height: 30px;
     font-size: 1.4rem;
+    vertical-align: middle;
     display: inline-block;
     position: relative;
+    overflow: hidden;
+    &:before {
+      margin: auto;
+      width: 24px;
+      height: 24px;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -14px;
+      bottom: 0;
+      border-top: $color-admin-secondary solid 2px;
+      border-right: $color-admin-secondary solid 2px;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
     &:first-child {
+      padding: 0 16px;
       width: 16px;
       padding-left: 0;
+      &:before {
+        content: none;
+      }
     }
+  }
+  &__list_inner {
+    color: $color-font-disable;
   }
   &__homeicon {
     margin: auto;

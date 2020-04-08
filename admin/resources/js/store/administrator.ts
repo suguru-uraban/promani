@@ -19,8 +19,14 @@ class Administrator extends VuexModule {
   public get userName(): string {
     return this.administrator ? this.administrator.name : '';
   }
-  public get userAuth(): number {
+  public get administratorAuth(): number {
     return this.administrator ? this.administrator.administrator_auth : 0;
+  }
+  public get creatorAuth(): number {
+    return this.administrator ? this.administrator.creator_auth : 0;
+  }
+  public get companyAuth(): number {
+    return this.administrator ? this.administrator.company_auth : 0;
   }
 
   // mutation
