@@ -2,12 +2,7 @@
   <div class="login">
     <main class="login__body">
       <h1 class="login__title">
-        <img
-          src="../../images/logo_admin.svg"
-          width="200"
-          alt="プロまに"
-          class="login__logo"
-        />管理画面v1.0.0
+        <img src="../../images/logo_admin.svg" width="200" alt="プロまに" class="login__logo" />管理画面v1.0.0
       </h1>
       <ValidationObserver v-slot="{ handleSubmit }">
         <ValidationProvider
@@ -38,7 +33,9 @@
           v-slot="{ classes, errors }"
         >
           <dl class="login__form" :class="classes">
-            <dt class="login__form-title"><fas icon="key" class="login__icon" />パスワード</dt>
+            <dt class="login__form-title">
+              <fas icon="key" class="login__icon" />パスワード
+            </dt>
             <dd class="login__form-wrap">
               <input
                 type="password"
@@ -125,7 +122,7 @@ export default class Login extends Vue {
   }
   &__title {
     font-size: 1.6rem;
-    color: $color-font-title;
+    color: $color-font-darkgray;
     text-align: center;
   }
   &__logo {

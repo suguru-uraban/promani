@@ -142,18 +142,21 @@ export default class SideNav extends Vue {
     width: 100%;
     height: 40px;
     border-bottom: $color-admin-border solid 1px;
+    & div {
+      cursor: default;
+    }
   }
   &__menulist_block {
     padding: 0 8px 0 32px;
     height: 40px;
     font-size: 1.2rem;
-    color: $color-font-over;
+    color: $color-font-darkgray;
     line-height: 40px;
     text-decoration: none;
     display: block;
     position: relative;
     &:hover {
-      background: $color-admin-menuover;
+      background: $color-sidnav-hover;
     }
   }
   &__icon {
@@ -161,7 +164,7 @@ export default class SideNav extends Vue {
     margin-right: 8px;
     width: 18px;
     font-size: 2rem;
-    color: $color-font-over;
+    color: $color-font-darkgray;
     position: absolute;
     top: 0;
     left: 8px;
@@ -181,7 +184,7 @@ export default class SideNav extends Vue {
     border-top: $color-admin-border solid 1px;
     border-right: $color-admin-border solid 1px;
     border-bottom: $color-admin-border solid 1px;
-    background: $color-admin-menuover;
+    background: $color-sidnav-hover;
     z-index: 1;
   }
   &__childmenu {
@@ -193,22 +196,22 @@ export default class SideNav extends Vue {
     margin: 4px 8px;
     padding: 0 8px 0 32px;
     height: 32px;
-    color: $color-font-over;
+    color: $color-font-darkgray;
     line-height: 32px;
     text-decoration: none;
     display: block;
     position: relative;
     border-radius: 2px;
     &:hover {
-      color: $color-font-hover;
-      background: $color-admin-linkover;
+      color: $color-link-hover;
+      background: $color-link-hover-bg;
       .sidenav__icon {
-        color: $color-font-hover;
+        color: $color-link-hover;
       }
     }
   }
   .disable {
-    color: $color-font-disable;
+    color: $color-link-disable;
     cursor: not-allowed;
     &:hover {
       background: transparent;

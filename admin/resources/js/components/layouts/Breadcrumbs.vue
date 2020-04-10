@@ -65,8 +65,8 @@ export default class SideNav extends Vue {
       top: 0;
       left: -14px;
       bottom: 0;
-      border-top: $color-admin-secondary solid 2px;
-      border-right: $color-admin-secondary solid 2px;
+      border-top: $color-admin-secondary solid 1px;
+      border-right: $color-admin-secondary solid 1px;
       transform: rotate(45deg);
       pointer-events: none;
     }
@@ -78,9 +78,13 @@ export default class SideNav extends Vue {
         content: none;
       }
     }
+    &:last-child {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
   }
   &__list_inner {
-    color: $color-font-disable;
+    color: $color-font-darkgray;
   }
   &__homeicon {
     margin: auto;
@@ -89,7 +93,7 @@ export default class SideNav extends Vue {
     position: absolute;
     top: 0;
     bottom: 0;
-    color: $color-font-disable;
+    color: $color-font-darkgray;
   }
 }
 </style>

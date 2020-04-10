@@ -1,12 +1,7 @@
 <template>
   <div class="header">
     <div class="header__title">
-      <img
-        src="../../../images/logo_admin.svg"
-        height="48"
-        alt="プロまに"
-        class="header__logo"
-      />管理画面v1.0.0
+      <img src="../../../images/logo_admin.svg" height="48" alt="プロまに" class="header__logo" />管理画面v1.0.0
     </div>
     <div class="header__user" @mouseover="usermenuover" @mouseleave="usermenuleave">
       <fas icon="user" class="header__icon" />
@@ -62,7 +57,7 @@ export default class Header extends Vue {
   z-index: 2;
   &__title {
     font-size: 1.6rem;
-    color: $color-font-title;
+    color: $color-font-darkgray;
   }
   &__logo {
     margin-right: 8px;
@@ -72,7 +67,7 @@ export default class Header extends Vue {
     padding: 0 8px 0 24px;
     height: 32px;
     font-size: 0;
-    color: $color-font-over;
+    color: $color-font-darkgray;
     line-height: 30px;
     display: inline-block;
     position: absolute;
@@ -91,7 +86,7 @@ export default class Header extends Vue {
     top: 0;
     left: 0;
     bottom: 0;
-    color: $color-font-over;
+    color: $color-font-darkgray;
   }
   &__username {
     padding-right: 20px;
@@ -105,8 +100,8 @@ export default class Header extends Vue {
       position: absolute;
       top: 0;
       right: 0;
-      border-right: $color-font-over solid 3px;
-      border-bottom: $color-font-over solid 3px;
+      border-right: $color-font-darkgray solid 3px;
+      border-bottom: $color-font-darkgray solid 3px;
       transform: rotate(45deg);
     }
   }
@@ -132,14 +127,14 @@ export default class Header extends Vue {
     padding: 0 8px;
     height: 24px;
     font-size: 1.4rem;
-    color: $color-font-link;
+    color: $color-link-default;
     line-height: 24px;
     text-decoration: none;
     display: block;
     border-radius: 4px;
     &:hover {
-      color: $color-font-hover;
-      background: $color-admin-linkover;
+      color: $color-link-hover;
+      background: $color-link-hover-bg;
     }
   }
 }

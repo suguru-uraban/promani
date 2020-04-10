@@ -29,20 +29,20 @@
   &__code {
     margin: 0;
     font-size: 6.4rem;
-    color: $color-font-gray;
+    color: $color-font-lightgray;
     font-weight: bold;
     text-align: center;
   }
   &__title {
     margin: 0;
     font-size: 2.4rem;
-    color: $color-font-gray;
+    color: $color-font-lightgray;
     font-weight: bold;
     text-align: center;
   }
   &__message {
     font-size: 1.6rem;
-    color: $color-font-base;
+    color: $color-font-white;
     line-height: 1.8;
     text-align: center;
   }
