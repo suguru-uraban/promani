@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <div class="header__title">
+    <h1 class="header__title">
       <img src="../../../images/logo_admin.svg" height="48" alt="プロまに" class="header__logo" />管理画面v1.0.0
-    </div>
+    </h1>
     <div class="header__user" @mouseover="usermenuover" @mouseleave="usermenuleave">
       <fas icon="user" class="header__icon" />
       <span class="header__username">{{ userName }}</span>
@@ -58,6 +58,7 @@ export default class Header extends Vue {
   &__title {
     font-size: 1.6rem;
     color: $color-font-darkgray;
+    display: inline-block;
   }
   &__logo {
     margin-right: 8px;

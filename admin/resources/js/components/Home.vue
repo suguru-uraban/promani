@@ -1,7 +1,14 @@
 <template>
   <Layout>
     <div class="home">
-      <main class="home__body"></main>
+      <main class="home__body">
+        <section class="home__section">
+          <Title value="共有事項" />
+        </section>
+        <section class="home__section">
+          <Title value="リリースノート" />
+        </section>
+      </main>
     </div>
   </Layout>
 </template>
@@ -9,10 +16,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Layout from './layouts/Layout.vue';
+import Title from './shared/Title.vue';
 
 @Component({
   components: {
     Layout,
+    Title,
   },
 })
 export default class Login extends Vue {}
@@ -23,6 +32,10 @@ export default class Login extends Vue {}
 
 .home {
   &__body {
+    position: relative;
+  }
+  &__section {
+    margin-bottom: 24px;
   }
 }
 </style>

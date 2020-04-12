@@ -27,7 +27,7 @@ export default class Layout extends Vue {}
 @import 'resources/sass/variables';
 
 .layout {
-  padding: 112px 16px 0 176px;
+  padding: 120px 16px 0 176px;
   min-width: 1000px;
   position: relative;
   box-sizing: border-box;
