@@ -129,25 +129,37 @@ button,
 [type=submit] {
   height: 40px;
   font-size: 2rem;
-  color: #666666;
   font-weight: bold;
   border-radius: 8px;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.4);
   border: 1px solid #707070;
-  background: linear-gradient(to bottom, #eaeaea, #cecece);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
 }
 
-button:hover,
-[type=button]:hover,
-[type=reset]:hover,
-[type=submit]:hover {
-  color: #796837;
-  background: linear-gradient(to bottom, #e5ded0, #cbc1ad);
-  border-color: #bfb4a2;
+button:active,
+[type=button]:active,
+[type=reset]:active,
+[type=submit]:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+button.ok,
+[type=button].ok,
+[type=reset].ok,
+[type=submit].ok {
+  color: #f0f0f0;
+  background: linear-gradient(to bottom, #82a1e4, #668ad8);
+}
+
+button.cancel,
+[type=button].cancel,
+[type=reset].cancel,
+[type=submit].cancel {
+  background: linear-gradient(to bottom, #eaeaea, #cecece);
 }
 
 button:disabled,

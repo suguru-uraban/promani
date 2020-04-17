@@ -47,7 +47,7 @@
             </dd>
           </dl>
         </ValidationProvider>
-        <button class="medium login__button" @click="handleSubmit(onSubmit)">ログイン</button>
+        <button class="medium ok login__button" @click="handleSubmit(onSubmit)">ログイン</button>
       </ValidationObserver>
     </main>
   </div>
@@ -122,7 +122,7 @@ export default class Login extends Vue {
   }
   &__title {
     font-size: 1.6rem;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     text-align: center;
   }
   &__logo {

@@ -5,10 +5,10 @@ $font-size-base: 1.6rem;
 $line-height-base: 1.6;
 
 // Font Colors
-$color-font-white: #ffffff;
-$color-font-black: #333333;
-$color-font-lightgray: #969696;
-$color-font-darkgray: #666666;
+$color-font-white: #f0f0f0;
+$color-font-black: #212121;
+$color-font-silvergrey: #9c9c9c;
+$color-font-steelgrey: #6d696f;
 
 // Link Colors
 $color-link-default: #999999;
@@ -21,12 +21,16 @@ $color-admin-primary: #424852;
 $color-admin-secondary: #b9bdc4;
 
 // admin Button Colors
-$color-admin-button: linear-gradient(to bottom, #eaeaea, #cecece);
-$color-admin-button-disabled: linear-gradient(to bottom, #fafafa, #efefef);
-$color-admin-button-hover: linear-gradient(to bottom, #e5ded0, #cbc1ad);
+$color-admin-ok-button: linear-gradient(to bottom, #82a1e4, #668ad8);
+$color-admin-cancel-button: linear-gradient(to bottom, #eaeaea, #cecece);
+$color-admin-disabled-button: linear-gradient(to bottom, #fafafa, #efefef);
 
 // admin Border Colors
 $color-admin-border: #eeeeee;
 
 // admin Sidenav Mouseover Colors
 $color-sidnav-hover: #dfe2e6;
+
+// admin BG Colors
+$color-admin-bg-header: #cccccc;
+$color-admin-bg-modal: #f0f0f0;

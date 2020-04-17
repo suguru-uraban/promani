@@ -29,14 +29,14 @@
   &__code {
     margin: 0;
     font-size: 6.4rem;
-    color: $color-font-lightgray;
+    color: $color-font-silvergrey;
     font-weight: bold;
     text-align: center;
   }
   &__title {
     margin: 0;
     font-size: 2.4rem;
-    color: $color-font-lightgray;
+    color: $color-font-silvergrey;
     font-weight: bold;
     text-align: center;
   }

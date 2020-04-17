@@ -44,7 +44,7 @@ export default class SideNav extends Vue {
   box-sizing: border-box;
   box-shadow: 6px 6px 4px 2px rgba(0, 0, 0, 0.2);
   border-top: $color-admin-secondary solid 2px;
-  background: #cccccc;
+  background: $color-admin-bg-header;
   z-index: 1;
   &__list {
     padding: 0 16px 0 32px;
@@ -84,7 +84,7 @@ export default class SideNav extends Vue {
     }
   }
   &__list_inner {
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
   }
   &__homeicon {
     margin: auto;
@@ -93,7 +93,7 @@ export default class SideNav extends Vue {
     position: absolute;
     top: 0;
     bottom: 0;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
   }
 }
 </style>

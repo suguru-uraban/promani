@@ -32,6 +32,7 @@ export default class Login extends Vue {}
 
 .home {
   &__body {
+    height: 600px;
     position: relative;
   }
   &__section {

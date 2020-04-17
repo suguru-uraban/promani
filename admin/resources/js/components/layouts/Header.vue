@@ -8,7 +8,11 @@
       <span class="header__username">{{ userName }}</span>
       <ul :class="['header__usermenu', { isOpen: isOpen }]">
         <li class="header__usermenulist">
-          <a href="javascript:void(0)" class="header__usermenulink" @click="logout">ログアウト</a>
+          <a
+            href="javascript:void(0)"
+            class="header__usermenulink"
+            @click="openModal('logout')"
+          >ログアウト</a>
         </li>
       </ul>
     </div>
@@ -18,6 +22,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import AdministratorModule from '../../store/administrator';
+import ModalModule from '../../store/modal';
+import { ModalType } from '../../types/stateType';
 
 @Component
 export default class Header extends Vue {
@@ -29,10 +35,8 @@ export default class Header extends Vue {
   public usermenuleave() {
     this.isOpen = false;
   }
-  public async logout() {
-    await AdministratorModule.logout();
-    this.$router.push('/login');
-    window.scroll(0, 0);
+  public openModal(modalType: ModalType) {
+    ModalModule.SET_MODALOPEN(modalType);
   }
 
   get userName() {
@@ -53,11 +57,11 @@ export default class Header extends Vue {
   top: 0;
   left: 0;
   box-sizing: border-box;
-  background: #cccccc;
+  background: $color-admin-bg-header;
   z-index: 2;
   &__title {
     font-size: 1.6rem;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     display: inline-block;
   }
   &__logo {
@@ -68,7 +72,7 @@ export default class Header extends Vue {
     padding: 0 8px 0 24px;
     height: 32px;
     font-size: 0;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     line-height: 30px;
     display: inline-block;
     position: absolute;
@@ -87,7 +91,7 @@ export default class Header extends Vue {
     top: 0;
     left: 0;
     bottom: 0;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
   }
   &__username {
     padding-right: 20px;
@@ -101,8 +105,8 @@ export default class Header extends Vue {
       position: absolute;
       top: 0;
       right: 0;
-      border-right: $color-font-darkgray solid 3px;
-      border-bottom: $color-font-darkgray solid 3px;
+      border-right: $color-font-steelgrey solid 3px;
+      border-bottom: $color-font-steelgrey solid 3px;
       transform: rotate(45deg);
     }
   }

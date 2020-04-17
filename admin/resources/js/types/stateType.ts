@@ -1,7 +1,9 @@
 export default interface RootState {
   AdministratorModule: AdministratorState;
+  ModalModule: ModalState;
 }
 
+// Administrator state
 export interface LoginState {
   email: string;
   password: string;
@@ -19,4 +21,11 @@ export interface AdministratorState extends RegisterState {
   email_verified_at: Date | null;
   created_at: Date;
   updated_at: Date;
+}
+
+// Modal state
+export type ModalType = 'logout' | 'password' | null;
+
+export interface ModalState {
+  modalType: ModalType;
 }

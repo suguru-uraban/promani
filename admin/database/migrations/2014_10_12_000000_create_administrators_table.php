@@ -15,7 +15,7 @@ class CreateAdministratorsTable extends Migration
     {
         Schema::create('administrators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('employee_number')->comment('社員番号');
+            $table->string('employee_number')->unique()->comment('社員番号');
             $table->string('name')->comment('名前');
             $table->string('email')->unique()->comment('メールアドレス');
             $table->timestamp('email_verified_at')->nullable();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInformationSharingTable extends Migration
+class CreateSharesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateInformationSharingTable extends Migration
      */
     public function up()
     {
-        Schema::create('information_sharing', function (Blueprint $table) {
+        Schema::create('shares', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('administrator_id')->comment('管理者ID');
             $table->string('information', 140)->comment('共有情報');
-            $table->string('name')->comment('名前');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateInformationSharingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('information_sharing');
+        Schema::dropIfExists('shares');
     }
 }

@@ -126,7 +126,7 @@ export default class SideNav extends Vue {
     left: 160px;
     box-sizing: border-box;
     border-top: $color-admin-secondary solid 2px;
-    background: #cccccc;
+    background: $color-admin-bg-header;
   }
   &__menu {
     margin: 24px 0 0;
@@ -150,7 +150,7 @@ export default class SideNav extends Vue {
     padding: 0 8px 0 32px;
     height: 40px;
     font-size: 1.2rem;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     line-height: 40px;
     text-decoration: none;
     display: block;
@@ -164,7 +164,7 @@ export default class SideNav extends Vue {
     margin-right: 8px;
     width: 18px;
     font-size: 2rem;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     position: absolute;
     top: 0;
     left: 8px;
@@ -196,7 +196,7 @@ export default class SideNav extends Vue {
     margin: 4px 8px;
     padding: 0 8px 0 32px;
     height: 32px;
-    color: $color-font-darkgray;
+    color: $color-font-steelgrey;
     line-height: 32px;
     text-decoration: none;
     display: block;

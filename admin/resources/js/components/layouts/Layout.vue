@@ -4,6 +4,7 @@
     <SideNav />
     <Breadcrumbs />
     <slot></slot>
+    <Modal />
   </div>
 </template>
 
@@ -12,12 +13,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import Header from './Header.vue';
 import SideNav from './SideNav.vue';
 import Breadcrumbs from './Breadcrumbs.vue';
+import Modal from './Modal.vue';
 
 @Component({
   components: {
     Header,
     SideNav,
     Breadcrumbs,
+    Modal,
   },
 })
 export default class Layout extends Vue {}
