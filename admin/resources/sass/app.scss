@@ -167,7 +167,22 @@ progress {
 }
 
 textarea {
+  padding: 4px;
+  font-size: 1.6rem;
+  border: #cccccc solid 1px;
+  line-height: 20px;
+  border-radius: 8px;
+  appearance: none;
+  box-sizing: border-box;
   overflow: auto;
+  resize: none;
+  &::placeholder {
+    color: #cccccc;
+  }
+  .error & {
+    border-color: #c02020;
+    background: #f0e0e0;
+  }
 }
 
 [type='checkbox'],
@@ -213,7 +228,7 @@ textarea {
   font-size: 1.2rem;
   color: #c02020;
   font-weight: bold;
-  top: 40px;
+  bottom: -22px;
   display: block;
   opacity: 0;
   border-radius: 8px;

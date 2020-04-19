@@ -8,11 +8,9 @@
       <span class="header__username">{{ userName }}</span>
       <ul :class="['header__usermenu', { isOpen: isOpen }]">
         <li class="header__usermenulist">
-          <a
-            href="javascript:void(0)"
-            class="header__usermenulink"
-            @click="openModal('logout')"
-          >ログアウト</a>
+          <a href="javascript:void(0)" class="header__usermenulink" @click="openModal('logout')">
+            <fas icon="sign-out-alt" class="header__usermenuicon" />ログアウト
+          </a>
         </li>
       </ul>
     </div>
@@ -80,7 +78,7 @@ export default class Header extends Vue {
     right: 16px;
     box-sizing: border-box;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: default;
   }
   &__icon {
     margin: auto;
@@ -128,6 +126,13 @@ export default class Header extends Vue {
     height: 24px;
     border-radius: 4px;
   }
+  &__usermenuicon {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    color: $color-link-default;
+    display: inline-block;
+  }
   &__usermenulink {
     padding: 0 8px;
     height: 24px;
@@ -140,6 +145,9 @@ export default class Header extends Vue {
     &:hover {
       color: $color-link-hover;
       background: $color-link-hover-bg;
+      .header__usermenuicon {
+        color: $color-link-hover;
+      }
     }
   }
 }

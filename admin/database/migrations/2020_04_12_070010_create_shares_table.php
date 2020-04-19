@@ -16,7 +16,7 @@ class CreateSharesTable extends Migration
         Schema::create('shares', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('administrator_id')->comment('管理者ID');
-            $table->string('information', 140)->comment('共有情報');
+            $table->string('information', 200)->comment('共有情報');
             $table->softDeletes();
             $table->timestamps();
         });

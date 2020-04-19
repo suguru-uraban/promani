@@ -203,7 +203,42 @@ progress {
 }
 
 textarea {
+  padding: 4px;
+  font-size: 1.6rem;
+  border: #cccccc solid 1px;
+  line-height: 20px;
+  border-radius: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-sizing: border-box;
   overflow: auto;
+  resize: none;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+textarea::-moz-placeholder {
+  color: #cccccc;
+}
+
+textarea:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+textarea::-ms-input-placeholder {
+  color: #cccccc;
+}
+
+textarea::placeholder {
+  color: #cccccc;
+}
+
+.error textarea {
+  border-color: #c02020;
+  background: #f0e0e0;
 }
 
 [type=checkbox],
@@ -276,7 +311,7 @@ textarea {
   font-size: 1.2rem;
   color: #c02020;
   font-weight: bold;
-  top: 40px;
+  bottom: -22px;
   display: block;
   opacity: 0;
   border-radius: 8px;

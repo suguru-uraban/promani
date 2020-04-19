@@ -5,7 +5,7 @@
     "child": false,
     "prefix": "fas",
     "icon": "info-circle",
-    "path": "/information/edit",
+    "path": "/shares/edit",
     "auth": 0
   },
   {

@@ -24,6 +24,7 @@ import ModalModule from '../../../store/modal';
 export default class ModalLogout extends Vue {
   public async logout() {
     await AdministratorModule.logout();
+    this.modalClose();
     this.$router.push('/login');
     window.scroll(0, 0);
   }
@@ -49,9 +50,8 @@ export default class ModalLogout extends Vue {
     text-align: center;
   }
   &__button {
-    margin: 0 24px;
+    margin-top: 40px;
     padding: 0;
-    margin-top: 24px;
     display: flex;
     justify-content: space-around;
     list-style: none;

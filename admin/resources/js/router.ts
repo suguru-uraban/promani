@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './components/Home.vue';
 import Login from './components/Login.vue';
+import SharesEdit from './components/SharesEdit.vue';
 import Error500 from './components/errors/500.vue';
 import AdministratorModule from './store/administrator';
 
@@ -26,6 +27,11 @@ export default new Router({
           next();
         }
       },
+    },
+    {
+      path: '/shares/edit',
+      name: 'sharesEdit',
+      component: SharesEdit,
     },
     {
       path: '/500',
