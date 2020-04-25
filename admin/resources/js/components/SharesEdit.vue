@@ -4,33 +4,41 @@
       <main class="sharesEdit__body">
         <section class="sharesEdit__section">
           <Title value="共有事項編集" />
-          <p class="sharesEdit__caption">共有事項は{{maxSharesLength}}文字以内で入力してください。</p>
+          <p class="sharesEdit__caption">
+            共有事項は{{ maxSharesLength }}文字以内で入力してください。
+          </p>
           <ValidationObserver v-slot="{ handleSubmit }">
             <ValidationProvider
               name="共有事項"
-              :rules="{ max:maxSharesLength }"
+              :rules="{ max: maxSharesLength }"
               :bails="false"
               v-slot="{ classes, errors }"
             >
               <div class="sharesEdit__form" :class="classes">
-                <textarea class="sharesEdit__textarea" v-model="shares"></textarea>
+                <textarea-autosize
+                  placeholder="例：管理画面のホームをアップデートしました"
+                  class="sharesEdit__textarea"
+                  v-model="shares"
+                  :min-height="78"
+                  :max-height="288"
+                ></textarea-autosize>
                 <span class="error-baloon">{{ errors[0] }}</span>
               </div>
             </ValidationProvider>
             <dl class="sharesEdit__countarea">
               <dt class="sharesEdit__counttitle">残り文字数：</dt>
-              <dd
-                class="sharesEdit__count--error"
-                v-if="shares.length >= maxSharesLength"
-              >{{countShares()}}文字</dd>
-              <dd
-                class="sharesEdit__count--warn"
-                v-else-if="shares.length >= (maxSharesLength - 10)"
-              >{{countShares()}}文字</dd>
-              <dd class="sharesEdit__count" v-else>{{countShares()}}文字</dd>
+              <dd class="sharesEdit__count--error" v-if="shares.length >= maxSharesLength">
+                {{ countShares() }}文字
+              </dd>
+              <dd class="sharesEdit__count--warn" v-else-if="shares.length >= maxSharesLength - 10">
+                {{ countShares() }}文字
+              </dd>
+              <dd class="sharesEdit__count" v-else>{{ countShares() }}文字</dd>
             </dl>
             <div class="sharesEdit__button">
-              <button class="medium ok sharesEdit__button" @click="handleSubmit(submitShares)">送信</button>
+              <button class="medium ok sharesEdit__button" @click="handleSubmit(submitShares)">
+                送信
+              </button>
             </div>
           </ValidationObserver>
         </section>
@@ -41,8 +49,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import VueTextareaAutosize from 'vue-textarea-autosize';
 import Layout from './layouts/Layout.vue';
 import Title from './shared/Title.vue';
+
+Vue.use(VueTextareaAutosize);
 
 @Component({
   components: {
@@ -85,9 +96,10 @@ export default class Login extends Vue {
     position: relative;
   }
   &__textarea {
+    padding: 8px;
     width: 100%;
-    height: 90px;
     display: block;
+    box-sizing: border-box;
   }
   &__countarea {
     margin-top: 8px;
@@ -112,7 +124,7 @@ export default class Login extends Vue {
       font-weight: bold;
       text-shadow: $color-font-white 1px 1px 0, $color-font-white -1px -1px 0,
         $color-font-white -1px 1px 0, $color-font-white 1px -1px 0, $color-font-white 0px 1px 0,
-        $color-font-white 0-1px 0, $color-font-white -1px 0 0, $color-font-white 1px 0 0;
+        $color-font-white 0 -1px 0, $color-font-white -1px 0 0, $color-font-white 1px 0 0;
     }
   }
   &__button {

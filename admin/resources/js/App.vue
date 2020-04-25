@@ -8,7 +8,6 @@
 import { INTERNAL_SERVER_ERROR } from './util/status';
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import ErrorModule from './store/error';
-console.log(ErrorModule.code);
 @Component
 export default class App extends Vue {
   get errorCode() {
