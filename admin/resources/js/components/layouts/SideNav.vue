@@ -8,7 +8,7 @@
         </div>
         <a
           href="javascript:void(0)"
-          class="sidenav__menulist_block"
+          :class="['sidenav__menulist_block', {'active': currentPath(menu.name)}]"
           v-if="!menu.child && userAuth(menu.authType) >= menu.auth"
           @click="link(menu.path)"
         >
@@ -16,7 +16,7 @@
           {{ menu.value }}
         </a>
         <div
-          class="sidenav__menulist_block"
+          :class="['sidenav__menulist_block', {'active': currentPath(menu.name)}]"
           v-if="menu.child && userAuth(menu.authType) >= menu.auth"
           @mouseover="sidenavover(index)"
           @mouseleave="sidenavleave(index)"
@@ -27,7 +27,7 @@
             <li class="sidenav__childmenu" v-for="child in children" :key="'child' + child.id">
               <a
                 href="javascript:void(0)"
-                class="sidenav__childlink"
+                :class="['sidenav__childlink', {'active': currentPath(menu.name) && currentPath(child.name)}]"
                 v-if="userAuth(menu.authType) >= child.auth"
                 @click="link('/' + menu.name + '/' + child.name)"
               >
@@ -48,7 +48,7 @@
         </div>
         <a
           href="javascript:void(0)"
-          class="sidenav__menulist_block"
+          :class="['sidenav__menulist_block', {'active': currentPath(config.name)}]"
           v-if="administratorAuth >= config.auth"
           @click="link(config.path)"
         >
@@ -90,6 +90,13 @@ export default class SideNav extends Vue {
       this.$router.push(path);
       window.scroll(0, 0);
     }
+  }
+  public currentPath(name: string) {
+    const pathname = location.pathname;
+    if (~pathname.indexOf(name)) {
+      return true;
+    }
+    return false;
   }
   public userAuth(authType: string) {
     if (authType === 'administrator') {
@@ -159,7 +166,8 @@ export default class SideNav extends Vue {
     text-decoration: none;
     display: block;
     position: relative;
-    &:hover {
+    &:hover,
+    &.active {
       background: $color-sidnav-hover;
     }
   }
@@ -206,7 +214,8 @@ export default class SideNav extends Vue {
     display: block;
     position: relative;
     border-radius: 2px;
-    &:hover {
+    &:hover,
+    &.active {
       color: $color-link-hover;
       background: $color-link-hover-bg;
       .sidenav__icon {

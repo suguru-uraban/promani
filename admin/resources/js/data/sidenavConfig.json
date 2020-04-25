@@ -5,6 +5,7 @@
     "child": false,
     "prefix": "fas",
     "icon": "info-circle",
+    "name": "shares",
     "path": "/shares/edit",
     "auth": 0
   },
@@ -14,7 +15,8 @@
     "child": false,
     "prefix": "fas",
     "icon": "sticky-note",
-    "path": "releasenote/edit",
+    "name": "releasenote",
+    "path": "/releasenote/edit",
     "auth": 1
   }
 ]

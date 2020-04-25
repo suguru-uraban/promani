@@ -5,6 +5,7 @@
     "child": false,
     "prefix": "fas",
     "icon": "home",
+    "name": "home",
     "path": "/",
     "authType": "administrator",
     "auth": 0
