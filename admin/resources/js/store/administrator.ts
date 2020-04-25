@@ -1,7 +1,16 @@
+// library
 import { Mutation, Action, VuexModule, getModule, Module } from 'vuex-module-decorators';
+
+// store
 import store from '.';
+
+// state type
 import { AdministratorState, RegisterState, LoginState } from '../types/stateType';
+
+// store module
 import ErrorModule from '../store/error';
+
+// util
 import { OK, UNPROCESSABLE_ENTITY } from '../util/status';
 
 @Module({ dynamic: true, store, name: 'AdministratorModule', namespaced: true })

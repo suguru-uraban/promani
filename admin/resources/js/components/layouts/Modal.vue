@@ -12,9 +12,14 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+
+// component
 import ModalLogout from './modal/Logout.vue';
+
+// store module
 import ModalModule from '../../store/modal';
 
 @Component({

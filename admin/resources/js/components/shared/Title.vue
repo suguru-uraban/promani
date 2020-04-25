@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component

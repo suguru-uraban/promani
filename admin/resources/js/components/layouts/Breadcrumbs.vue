@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
 // import AdministratorModule from '../../store/administrator';
 

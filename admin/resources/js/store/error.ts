@@ -1,4 +1,7 @@
+// library
 import { Mutation, VuexModule, getModule, Module } from 'vuex-module-decorators';
+
+// store
 import store from '.';
 
 @Module({ dynamic: true, store, name: 'ErrorModule', namespaced: true })

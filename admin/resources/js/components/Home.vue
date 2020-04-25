@@ -14,7 +14,10 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
+
+// component
 import Layout from './layouts/Layout.vue';
 import Title from './shared/Title.vue';
 

@@ -1,5 +1,10 @@
+// library
 import { Mutation, VuexModule, getModule, Module } from 'vuex-module-decorators';
+
+// store
 import store from '.';
+
+// state type
 import { ModalState } from '../types/stateType';
 import { ModalType } from '../types/stateType';
 

@@ -61,9 +61,13 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
+
+// store module
 import AdministratorModule from '../../store/administrator';
 
+// sidenav data json
 declare function require(x: string): { [key: string]: string | number | boolean }[];
 const sidenavMenu = require('../../data/sidenavMenu.json');
 const sidenavMenuChild = require('../../data/sidenavMenuChild.json');

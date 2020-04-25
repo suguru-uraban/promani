@@ -5,9 +5,15 @@
 </template>
 
 <script lang="ts">
-import { INTERNAL_SERVER_ERROR } from './util/status';
+// library
 import { Component, Watch, Vue } from 'vue-property-decorator';
+
+// store module
 import ErrorModule from './store/error';
+
+// util
+import { INTERNAL_SERVER_ERROR } from './util/status';
+
 @Component
 export default class App extends Vue {
   get errorCode() {

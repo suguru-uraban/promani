@@ -4,9 +4,7 @@
       <main class="sharesEdit__body">
         <section class="sharesEdit__section">
           <Title value="共有事項編集" />
-          <p class="sharesEdit__caption">
-            共有事項は{{ maxSharesLength }}文字以内で入力してください。
-          </p>
+          <p class="sharesEdit__caption">共有事項は{{ maxSharesLength }}文字以内で入力してください。</p>
           <ValidationObserver v-slot="{ handleSubmit }">
             <ValidationProvider
               name="共有事項"
@@ -27,18 +25,18 @@
             </ValidationProvider>
             <dl class="sharesEdit__countarea">
               <dt class="sharesEdit__counttitle">残り文字数：</dt>
-              <dd class="sharesEdit__count--error" v-if="shares.length >= maxSharesLength">
-                {{ countShares() }}文字
-              </dd>
-              <dd class="sharesEdit__count--warn" v-else-if="shares.length >= maxSharesLength - 10">
-                {{ countShares() }}文字
-              </dd>
+              <dd
+                class="sharesEdit__count--error"
+                v-if="shares.length >= maxSharesLength"
+              >{{ countShares() }}文字</dd>
+              <dd
+                class="sharesEdit__count--warn"
+                v-else-if="shares.length >= maxSharesLength - 10"
+              >{{ countShares() }}文字</dd>
               <dd class="sharesEdit__count" v-else>{{ countShares() }}文字</dd>
             </dl>
             <div class="sharesEdit__button">
-              <button class="medium ok sharesEdit__button" @click="handleSubmit(submitShares)">
-                送信
-              </button>
+              <button class="medium ok sharesEdit__button" @click="handleSubmit(submitShares)">送信</button>
             </div>
           </ValidationObserver>
         </section>
@@ -48,8 +46,11 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
 import VueTextareaAutosize from 'vue-textarea-autosize';
+
+// component
 import Layout from './layouts/Layout.vue';
 import Title from './shared/Title.vue';
 

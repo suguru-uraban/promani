@@ -9,7 +9,10 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
+
+// component
 import Header from './Header.vue';
 import SideNav from './SideNav.vue';
 import Breadcrumbs from './Breadcrumbs.vue';

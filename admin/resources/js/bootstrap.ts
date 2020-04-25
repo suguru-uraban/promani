@@ -1,5 +1,8 @@
-import { getCookieValue } from './util/cookie';
+// library
 import Axios, { AxiosStatic } from 'axios';
+
+// util
+import { getCookieValue } from './util/cookie';
 
 declare global {
   interface Window {

@@ -1,16 +1,26 @@
 import bootstrap from './bootstrap';
 import Vue from 'vue';
+
+// library
 import router from './router';
-import store from './store/index';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { ValidationObserver, ValidationProvider, extend, localize, configure } from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
 import Toasted from 'vue-toasted';
 import ja from './lang/validate/ja';
-import AdministratorModule from './store/administrator';
+
+// component
 import App from './App.vue';
+
+// fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+// store
+import store from './store/index';
+
+// store module
+import AdministratorModule from './store/administrator';
 
 bootstrap();
 

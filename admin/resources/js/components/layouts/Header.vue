@@ -18,9 +18,14 @@
 </template>
 
 <script lang="ts">
+// library
 import { Component, Vue } from 'vue-property-decorator';
+
+// store module
 import AdministratorModule from '../../store/administrator';
 import ModalModule from '../../store/modal';
+
+// state type
 import { ModalType } from '../../types/stateType';
 
 @Component
