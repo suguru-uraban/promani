@@ -53,7 +53,7 @@ class Administrator extends VuexModule {
   }
   @Mutation
   public SET_REGISTER_ERROR(payload: boolean) {
-    this.loginError = payload;
+    this.registerError = payload;
   }
 
   // actions

@@ -1,6 +1,7 @@
 export default interface RootState {
   AdministratorModule: AdministratorState;
   ModalModule: ModalState;
+  SharesModule: SharesState;
 }
 
 // Administrator state
@@ -28,4 +29,12 @@ export type ModalType = 'logout' | 'password' | null;
 
 export interface ModalState {
   modalType: ModalType;
+}
+
+// Shares state
+export interface SharesState {
+  id: number;
+  information: string;
+  name: string;
+  created_at: Date;
 }
