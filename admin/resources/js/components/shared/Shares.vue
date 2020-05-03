@@ -1,7 +1,7 @@
 <template>
   <div class="shares">
-    <ul class="shares__body" v-if="true">
-      <li class="shares__block" v-for="share in shares" :key="share.id">
+    <ul class="shares__body" v-if="sharesData.length">
+      <li class="shares__block" v-for="share in sharesData" :key="share.id">
         <p class="shares__information">{{ share.information }}</p>
         <ul class="shares__footer">
           <li class="shares__date">{{ convertDate(share.created_at) }}</li>
@@ -16,27 +16,17 @@
 <script lang="ts">
 // library
 import { Component, Vue } from 'vue-property-decorator';
-
-const shares = [
-  {
-    id: 1,
-    information:
-      'JSONデータ型はJSON(JavaScript Object Notation)データを格納するためのものです。JSONの仕様はRFC 7159に定義されています。',
-    name: '佐藤 優',
-    created_at: '2020-10-06 07:25:42',
-  },
-  {
-    id: 2,
-    information:
-      'プロまにの管理画面が完成しました。プロまにの管理画面が完成しました。プロまにの管理画面が完成しました。',
-    name: '佐藤 優',
-    created_at: '2020-10-06 07:25:42',
-  },
-];
+import SharesModule from '../../store/shares';
 
 @Component
 export default class Shares extends Vue {
-  shares = shares;
+  mounted() {
+    SharesModule.getShares();
+  }
+
+  get sharesData() {
+    return SharesModule.shares;
+  }
 
   public convertDate(date: string) {
     const toDate = new Date(date);

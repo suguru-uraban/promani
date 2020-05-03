@@ -13,23 +13,18 @@ import { OK, UNPROCESSABLE_ENTITY } from '../util/status';
 @Module({ dynamic: true, store, name: 'SharesModule', namespaced: true })
 class Shares extends VuexModule {
   // state
-  public shares: SharesState = {
-    id: null,
-    information: '',
-    name: '',
-    created_at: null,
-  };
+  public shares: SharesState[] = [];
   public apiStatus: boolean | null = null;
   public sharesError: boolean = false;
 
   // getter
-  public get sharesInformation(): string {
-    return this.shares.information ? this.shares.information : '';
+  public get sharesData(): SharesState[] {
+    return this.shares ? this.shares : [];
   }
 
   // mutation
   @Mutation
-  private SET_SHARES(payload: SharesState) {
+  private SET_SHARES(payload: SharesState[]) {
     this.shares = payload;
   }
   @Mutation
@@ -44,7 +39,7 @@ class Shares extends VuexModule {
   // actions
   // 共有情報登録
   @Action({})
-  public async postShares(payload: SharesState) {
+  public async postShares(payload: SharesState[]) {
     const response = await window.axios.post('/api/shares', payload);
     if (response.status === OK) {
       this.SET_API_STATUS(true);
@@ -60,7 +55,7 @@ class Shares extends VuexModule {
   @Action({})
   public async getShares() {
     const response = await window.axios.get('/api/shares');
-    const shares = response.data || null;
+    const shares: SharesState[] | null = response.data || null;
     if (response.status === OK) {
       this.SET_API_STATUS(true);
       this.SET_SHARES(shares);

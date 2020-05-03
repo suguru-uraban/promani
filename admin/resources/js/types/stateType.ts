@@ -36,5 +36,5 @@ export interface SharesState {
   id: number;
   information: string;
   name: string;
-  created_at: Date;
+  created_at: string;
 }
