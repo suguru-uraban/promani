@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" id="modal" v-if="!!modalType" @click.self="modalClose">
+  <div class="modal" id="modal" v-if="modalType" @click.self="modalClose">
     <div class="modal__body">
       <a href="javascript:void(0)" class="modal__close" @click="modalClose">
         <fas icon="times" class="modal__icon" />
@@ -14,7 +14,7 @@
 <script lang="ts">
 // library
 import { Component, Vue } from 'vue-property-decorator';
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // component
 import ModalLogout from './modal/Logout.vue';
@@ -37,7 +37,9 @@ export default class Modal extends Vue {
   }
 
   public modalClose() {
+    const modal = document.getElementById('modal');
     ModalModule.SET_MODALOPEN(null);
+    enableBodyScroll(modal);
   }
 
   get modalType() {

@@ -20,7 +20,7 @@ import SharesModule from '../../store/shares';
 
 @Component
 export default class Shares extends Vue {
-  mounted() {
+  created() {
     SharesModule.getShares();
   }
 

@@ -53,7 +53,7 @@ export default class Header extends Vue {
 
 .header {
   padding: 8px 16px;
-  width: 100%;
+  width: 100vw;
   min-width: 1000px;
   height: 64px;
   position: fixed;
@@ -80,7 +80,7 @@ export default class Header extends Vue {
     display: inline-block;
     position: absolute;
     top: 16px;
-    right: 16px;
+    right: 32px;
     box-sizing: border-box;
     border-radius: 8px;
     cursor: default;

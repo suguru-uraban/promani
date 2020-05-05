@@ -1,7 +1,7 @@
 export default interface RootState {
   AdministratorModule: AdministratorState;
   ModalModule: ModalState;
-  SharesModule: SharesState;
+  SharesModule: ShareState;
 }
 
 // Administrator state
@@ -32,7 +32,7 @@ export interface ModalState {
 }
 
 // Shares state
-export interface SharesState {
+export interface ShareState {
   id: number;
   information: string;
   name: string;

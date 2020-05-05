@@ -5,7 +5,7 @@ import { Mutation, Action, VuexModule, getModule, Module } from 'vuex-module-dec
 import store from '.';
 
 // state type
-import { SharesState } from '../types/stateType';
+import { ShareState } from '../types/stateType';
 
 // util
 import { OK, UNPROCESSABLE_ENTITY } from '../util/status';
@@ -13,18 +13,18 @@ import { OK, UNPROCESSABLE_ENTITY } from '../util/status';
 @Module({ dynamic: true, store, name: 'SharesModule', namespaced: true })
 class Shares extends VuexModule {
   // state
-  public shares: SharesState[] = [];
+  public shares: ShareState[] = [];
   public apiStatus: boolean | null = null;
   public sharesError: boolean = false;
 
   // getter
-  public get sharesData(): SharesState[] {
+  public get sharesData(): ShareState[] {
     return this.shares ? this.shares : [];
   }
 
   // mutation
   @Mutation
-  private SET_SHARES(payload: SharesState[]) {
+  private SET_SHARES(payload: ShareState[]) {
     this.shares = payload;
   }
   @Mutation
@@ -39,7 +39,7 @@ class Shares extends VuexModule {
   // actions
   // 共有情報登録
   @Action({})
-  public async postShares(payload: SharesState[]) {
+  public async postShares(payload: ShareState[]) {
     const response = await window.axios.post('/api/shares', payload);
     if (response.status === OK) {
       this.SET_API_STATUS(true);
@@ -55,7 +55,7 @@ class Shares extends VuexModule {
   @Action({})
   public async getShares() {
     const response = await window.axios.get('/api/shares');
-    const shares: SharesState[] | null = response.data || null;
+    const shares: ShareState[] | null = response.data || null;
     if (response.status === OK) {
       this.SET_API_STATUS(true);
       this.SET_SHARES(shares);

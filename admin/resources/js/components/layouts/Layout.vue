@@ -4,7 +4,7 @@
     <SideNav />
     <Breadcrumbs />
     <slot></slot>
-    <Modal />
+    <Modal v-if="modalType" />
   </div>
 </template>
 
@@ -18,6 +18,9 @@ import SideNav from './SideNav.vue';
 import Breadcrumbs from './Breadcrumbs.vue';
 import Modal from './Modal.vue';
 
+// store module
+import ModalModule from '../../store/modal';
+
 @Component({
   components: {
     Header,
@@ -26,7 +29,11 @@ import Modal from './Modal.vue';
     Modal,
   },
 })
-export default class Layout extends Vue {}
+export default class Layout extends Vue {
+  get modalType() {
+    return ModalModule.modalType;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -34,11 +41,9 @@ export default class Layout extends Vue {}
 
 .layout {
   padding: 120px 16px 0 176px;
+  width: calc(100vw - 15px);
   min-width: 1000px;
   position: relative;
   box-sizing: border-box;
-  &__body {
-    width: 100%;
-  }
 }
 </style>
