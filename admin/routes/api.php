@@ -14,5 +14,5 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // ログイン管理者取得
 Route::get('/administrator', fn() => Auth::user())->name('administrator');
 
-// 共有情報表示
-Route::get('/shares', 'SharesController@index')->name('shares');
+// 共有情報
+Route::apiResource('/share', 'ShareController');

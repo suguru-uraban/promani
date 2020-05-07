@@ -1,22 +1,22 @@
 [
   {
     "id": "0",
-    "value": "共有事項編集",
+    "value": "共有事項追加",
     "child": false,
     "prefix": "fas",
     "icon": "info-circle",
     "name": "shares",
-    "path": "/shares/edit",
+    "path": "/shares/add",
     "auth": 0
   },
   {
     "id": "1",
-    "value": "リリースノート編集",
+    "value": "リリースノート追加",
     "child": false,
     "prefix": "fas",
     "icon": "sticky-note",
     "name": "releasenote",
-    "path": "/releasenote/edit",
+    "path": "/releasenote/add",
     "auth": 1
   }
 ]

@@ -40,7 +40,7 @@ class Shares extends VuexModule {
   // 共有情報登録
   @Action({})
   public async postShares(payload: ShareState[]) {
-    const response = await window.axios.post('/api/shares', payload);
+    const response = await window.axios.post('/api/share', payload);
     if (response.status === OK) {
       this.SET_API_STATUS(true);
       this.SET_SHARES(response.data);
@@ -54,7 +54,7 @@ class Shares extends VuexModule {
   // 共有情報取得
   @Action({})
   public async getShares() {
-    const response = await window.axios.get('/api/shares');
+    const response = await window.axios.get('/api/share');
     const shares: ShareState[] | null = response.data || null;
     if (response.status === OK) {
       this.SET_API_STATUS(true);

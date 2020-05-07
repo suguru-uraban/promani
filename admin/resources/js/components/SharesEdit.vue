@@ -3,7 +3,7 @@
     <div class="sharesEdit">
       <main class="sharesEdit__body">
         <section class="sharesEdit__section">
-          <Title value="共有事項編集" />
+          <Title value="共有事項追加" />
           <p class="sharesEdit__caption">共有事項は{{ maxSharesLength }}文字以内で入力してください。</p>
           <ValidationObserver v-slot="{ handleSubmit }">
             <ValidationProvider

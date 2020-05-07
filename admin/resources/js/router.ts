@@ -35,7 +35,7 @@ export default new Router({
       },
     },
     {
-      path: '/shares/edit',
+      path: '/shares/add',
       name: 'sharesEdit',
       component: SharesEdit,
     },
